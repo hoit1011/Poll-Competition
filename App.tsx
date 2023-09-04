@@ -103,6 +103,19 @@ const toggleZoom9 =(img: string, questionNumber: number) => {
   
   setZoomState9({ img1: false, img2: false, img3: false, img4: false, img5: false, [img]: true });
 }
+
+const submit = (arr: number[]): number => {
+  let sum = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  
+  console.log(sum); 
+  
+  return sum;
+};
+
   const [array,setArray] = useState<number[]>([0,0,0,0,0,0,0,0,0,0])
   return (
     <View>
@@ -117,7 +130,6 @@ const toggleZoom9 =(img: string, questionNumber: number) => {
           </View>
           <View style={styles.cheakView}>
             <Text style={styles.questiontext}>동의</Text>
-
             <TouchableOpacity onPress={() => toggleZoom('img1',1)}>
             {zoomState.img1 ? 
                   <Text style={[styles.cheak,zoomState.img1 && styles.zoomed]}>◉</Text> : 
@@ -283,7 +295,7 @@ const toggleZoom9 =(img: string, questionNumber: number) => {
             }    
             </TouchableOpacity>
             <TouchableOpacity onPress={() => toggleZoom4('img3',2)}>
-            {zoomState3.img4 ? 
+            {zoomState4.img3 ? 
                   <Text style={[styles.cheak,zoomState4.img3 && styles.zoomed]}>◉</Text> : 
                   <Text style={styles.cheak}>◎</Text>
             }    
@@ -321,7 +333,7 @@ const toggleZoom9 =(img: string, questionNumber: number) => {
             }    
             </TouchableOpacity>
             <TouchableOpacity onPress={() => toggleZoom5('img3',2)}>
-            {zoomState5.img5 ? 
+            {zoomState5.img3 ? 
                   <Text style={[styles.cheak,zoomState5.img3 && styles.zoomed]}>◉</Text> : 
                   <Text style={styles.cheak}>◎</Text>
             }    
@@ -496,6 +508,9 @@ const toggleZoom9 =(img: string, questionNumber: number) => {
             </TouchableOpacity>
             <Text style={styles.questiontext} >비동의</Text>
             </View>
+            <TouchableOpacity onPress={() => submit(array)}>
+              <Text>제출</Text>
+            </TouchableOpacity>
         </ScrollView>
       </ImageBackground>
     </View>
